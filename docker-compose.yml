@@ -9,13 +9,11 @@ services:
 
   django:
     image: datasciencebr/jarbas-backend
-    environment:
-      - ALLOWED_HOSTS=localhost,127.0.0.1
-      - CELERY_BROKER_URL=amqp://guest:guest@queue/
-      - NEW_RELIC_APP_NAME=Jarbas (Django); Jarbas (Combined)
     depends_on:
       - elm
       - tasks
+    environment:
+      - NEW_RELIC_APP_NAME=Jarbas (Django); Jarbas (Combined)
     volumes:
       - "./contrib/data:/mnt/data"
     hostname: django
@@ -23,7 +21,6 @@ services:
   tasks:
     image: datasciencebr/jarbas-backend
     environment:
-      - CELERY_BROKER_URL=amqp://guest:guest@queue/
       - NEW_RELIC_APP_NAME=Jarbas (Celery); Jarbas (Combined)
     depends_on:
       - queue
@@ -41,6 +38,9 @@ services:
   research:
     build:
       context: research
+      args:
+        - AMAZON_BUCKET
+        - AMAZON_REGION
     env_file:
       - .env
     volumes:
