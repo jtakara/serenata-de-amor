@@ -24,10 +24,7 @@ services:
     hostname: tasks
 
   elm:
-    # image: datasciencebr/jarbas-frontend
-    build:
-      context: .
-      dockerfile: Dockerfile-elm
+    image: datasciencebr/jarbas-frontend
     hostname: elm
 
   queue:
