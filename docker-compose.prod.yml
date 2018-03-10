@@ -36,7 +36,7 @@ services:
 
   django:
     env_file:
-      - .env.prod
+      - .env
     networks:
       - backend
     depends_on:
@@ -84,7 +84,7 @@ services:
     image: gliderlabs/logspout:v3.2.4
     restart: always
     env_file:
-      - .env.prod
+      - .env
     command: ${LOGGING_URL}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
