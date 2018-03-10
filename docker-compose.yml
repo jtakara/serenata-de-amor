@@ -11,9 +11,6 @@ services:
     image: datasciencebr/jarbas-backend
     environment:
       - ALLOWED_HOSTS=localhost,127.0.0.1
-      - AMAZON_S3_BUCKET=serenata-de-amor-data
-      - AMAZON_S3_REGION=s3-sa-east-1
-      - AMAZON_S3_CEAPTRANSLATION_DATE=2016-08-08
       - CELERY_BROKER_URL=amqp://guest:guest@queue/
       - NEW_RELIC_APP_NAME=Jarbas (Django); Jarbas (Combined)
     depends_on:

@@ -139,8 +139,8 @@ CORE_STATIC_DIR = os.path.join(BASE_DIR, 'jarbas', 'core', 'static')
 
 # Amazon S3 datasets
 
-AMAZON_S3_BUCKET = config('AMAZON_S3_BUCKET', default='serenata-de-amor-data')
-AMAZON_S3_REGION = config('AMAZON_S3_REGIN', default='s3-sa-east-1')
+AMAZON_BUCKET = config('AMAZON_BUCKET')
+AMAZON_REGION = config('AMAZON_REGION')
 AMAZON_S3_CEAPTRANSLATION_DATE = config('AMAZON_S3_CEAPTRANSLATION_DATE', default='2016-08-08')
 
 # Django REST Framework
