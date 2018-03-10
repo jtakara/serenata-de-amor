@@ -4,7 +4,6 @@ ARG AMAZON_BUCKET
 ARG AMAZON_REGION
 
 COPY requirements.txt ./
-COPY setup ./
 COPY rosie.py ./
 COPY rosie ./rosie
 
@@ -19,7 +18,7 @@ RUN apk add --no-cache python3 libstdc++ lapack && \
         python3-dev ca-certificates  libxslt-dev libxml2-dev && \
     ln -s locale.h /usr/include/xlocale.h && \
     ln -s /usr/bin/python3 /usr/bin/python && \
-    ./setup && \
+    pip install -r requirements.txt && \
     find /usr/lib/python3.*/ -name 'tests' -exec rm -r '{}' + && \
     rm /usr/include/xlocale.h && \
     rm -r /root/.cache && \
