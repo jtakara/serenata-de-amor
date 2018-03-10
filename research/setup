@@ -17,8 +17,6 @@ args = parser.parse_args()
 print('Downloading datasets (this might take several minutes \
     depending on your internet connection)')
 
-# This is imported here because serenata_toolbox is only
-# installed when pip.main is called (line 19)
 from serenata_toolbox.datasets import fetch_latest_backup
 os.makedirs(DATA_DIR, exist_ok=True)
 fetch_latest_backup(DATA_DIR, force_all=args.all)
