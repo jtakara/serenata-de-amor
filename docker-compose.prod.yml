@@ -58,7 +58,6 @@ services:
       - backend
 
   elm:
-    command: ["npm", "run", "assets"]
     volumes:
       - assets:/code/jarbas/layers/static
 

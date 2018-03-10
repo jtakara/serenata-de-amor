@@ -4,8 +4,6 @@ services:
   rosie:
     build:
       context: rosie
-    volumes:
-      - /tmp/serenata-data:/tmp/serenata-data
 
   django:
     image: datasciencebr/jarbas-backend
@@ -14,8 +12,6 @@ services:
       - tasks
     environment:
       - NEW_RELIC_APP_NAME=Jarbas (Django); Jarbas (Combined)
-    volumes:
-      - "./contrib/data:/mnt/data"
     hostname: django
 
   tasks:
@@ -34,15 +30,3 @@ services:
   queue:
     image: rabbitmq:3.7.3-alpine
     hostname: queue
-
-  research:
-    build:
-      context: research
-      args:
-        - AMAZON_BUCKET
-        - AMAZON_REGION
-    env_file:
-      - .env
-    volumes:
-      - ./research:/mnt/code
-    hostname: research

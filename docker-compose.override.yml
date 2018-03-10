@@ -4,6 +4,7 @@ services:
   django:
     volumes:
       - .:/code
+      - ./contrib/data:/mnt/data
     ports:
       - "8000:8000"
     depends_on:
@@ -14,12 +15,31 @@ services:
       - .:/code
 
   elm:
+    command: ["npm", "run", "watch"]
     volumes:
       - ./jarbas:/code/jarbas
 
   postgres:
     image: postgres:10.3-alpine
+    env_file:
+      - .env
     volumes:
       - ./db:/var/lib/postgresql
     ports:
       - "5432:5432"
+
+  research:
+    build:
+      context: research
+      args:
+        - AMAZON_BUCKET
+        - AMAZON_REGION
+    env_file:
+      - .env
+    volumes:
+      - ./research:/mnt/code
+    hostname: research
+
+  rosie:
+    volumes:
+      - /tmp/serenata-data:/tmp/serenata-data

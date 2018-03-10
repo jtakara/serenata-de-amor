@@ -1,12 +1,12 @@
 FROM alpine:3.6
 
-LABEL maintainer="https://github.com/datasciencebr/rosie"
+ARG AMAZON_BUCKET
+ARG AMAZON_REGION
 
 COPY requirements.txt ./
 COPY setup ./
 COPY rosie.py ./
 COPY rosie ./rosie
-COPY config.ini.example ./
 
 RUN apk add --no-cache python3 libstdc++ lapack && \
     python3 -m ensurepip && \
