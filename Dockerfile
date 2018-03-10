@@ -1,4 +1,5 @@
-FROM python:3.5.4-alpine
+FROM python:3.6.4-alpine3.7
+
 ENV PYTHONUNBUFFERED=1 \
     GOSS_VERSION=${GOSS_VERSION:-v0.3.5}
 

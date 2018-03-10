@@ -18,7 +18,7 @@ services:
       - ./jarbas:/code/jarbas
 
   postgres:
-    image: postgres:9.6.5-alpine
+    image: postgres:10.3-alpine
     volumes:
       - ./db:/var/lib/postgresql
     ports:
