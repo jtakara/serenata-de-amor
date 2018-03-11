@@ -1,8 +1,8 @@
 FROM continuumio/miniconda3:4.4.10
 
 USER root
-ARG AMAZON_BUCKET
-ARG AMAZON_REGION
+ARG AMAZON_BUCKET=serenata-de-amor-data
+ARG AMAZON_REGION=sa-east-1
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \

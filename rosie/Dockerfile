@@ -1,7 +1,7 @@
 FROM alpine:3.6
 
-ARG AMAZON_BUCKET
-ARG AMAZON_REGION
+ARG AMAZON_BUCKET=serenata-de-amor-data
+ARG AMAZON_REGION=sa-east-1
 
 COPY requirements.txt ./
 COPY rosie.py ./
