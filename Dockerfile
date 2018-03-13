@@ -1,9 +1,10 @@
 FROM python:3.6.4-alpine3.7
 
-ENV AMAZON_BUCKET=serenata-de-amor-data AMAZON_REGION=sa-east-1
-
-ENV PYTHONUNBUFFERED=1 \
-    GOSS_VERSION=${GOSS_VERSION:-v0.3.5}
+ENV AMAZON_BUCKET=serenata-de-amor-data \
+    AMAZON_REGION=sa-east-1 \
+    GOSS_VERSION=${GOSS_VERSION:-v0.3.5} \
+    PYTHONUNBUFFERED=1 \
+    SECRET_KEY=${SECRET_KEY}
 
 COPY ./requirements.txt /code/requirements.txt
 COPY ./requirements-dev.txt /code/requirements-dev.txt
