@@ -1,0 +1,9 @@
+web:
+  autoredeploy: true
+  environment:
+    - AMAZON_BUCKET=serenata-de-amor-data
+    - AMAZON_REGION=s3-sa-east-1
+  image: 'serenata/django:deployment'
+  ports:
+    - '80:8000'
+  restart: always
